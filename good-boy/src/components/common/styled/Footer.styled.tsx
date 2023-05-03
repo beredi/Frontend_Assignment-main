@@ -5,9 +5,9 @@ export const FooterStyled = styled.div`
   flex-direction: row;
   justify-content: space-between;
   border-top: 1px solid #eeeeee;
-  padding-top: 67px;
+  padding: 67px 0;
 
-  @media screen and (max-width: 576px) {
+  @media screen and (max-width: 992px) {
     flex-direction: column;
     align-items: center;
   }
@@ -26,19 +26,19 @@ export const FooterElementStyled = styled.div`
     color: #2f2f2f;
 
     margin-top: 50px;
-    @media screen and (max-width: 576px) {
+    @media screen and (max-width: 992px) {
       margin-top: 20px;
     }
   }
   .children {
     padding-top: 24px;
-    @media screen and (max-width: 576px) {
+    @media screen and (max-width: 992px) {
       padding-top: 10px;
       width: 65%;
       text-align: center;
     }
   }
-  @media screen and (max-width: 576px) {
+  @media screen and (max-width: 992px) {
     width: 100%;
     align-items: center;
   }
