@@ -1,5 +1,10 @@
 {
   "newApp": "Nova react appka",
   "foundation": "Nadácia",
-  "goodBoy": "Good Boy"
+  "goodBoy": "Good Boy",
+  "links": {
+    "about": "O projekte",
+    "how": "Ako na to",
+    "contact": "Kontakt"
+  }
 }

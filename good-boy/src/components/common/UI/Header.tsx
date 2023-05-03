@@ -10,8 +10,8 @@ export const Header = () => {
       <Container>
         <HeaderStyled>
           <div>
-            <span>{t("foundation")} </span>
-            <span className="title">{t("goodBoy")}</span>
+            {t("foundation")}
+            <span className="title"> {t("goodBoy")}</span>
           </div>
           <div>
             <a href="#">

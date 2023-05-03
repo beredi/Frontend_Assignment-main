@@ -1,5 +1,10 @@
 {
   "newApp": "New React Application",
   "foundation": "Foundation",
-  "goodBoy": "Good Boy"
+  "goodBoy": "Good Boy",
+  "links": {
+    "about": "About the project",
+    "how": "How to do it",
+    "contact": "Contact"
+  }
 }
