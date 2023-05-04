@@ -6,5 +6,20 @@
     "about": "About the project",
     "how": "How to do it",
     "contact": "Contact"
+  },
+  "forms": {
+    "title1": "Choose how you want to help",
+    "title2": "We need some information from you",
+    "title3": "Check the entered data",
+    "next": "Next",
+    "back": "Back",
+    "aboutYou": "About",
+    "name": "Name",
+    "enterName": "Enter your name",
+    "lastname": "Lastname",
+    "enterLastname": "Enter your lastname",
+    "email": "E-mail address",
+    "enterEmail": "Enter your email",
+    "phone": "Phone number"
   }
 }

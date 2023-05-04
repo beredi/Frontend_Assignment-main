@@ -1,11 +1,10 @@
 import { LeftSideStyled } from "../styled/LeftSide.styled";
-import { Bar } from "../Forms/Bar";
+import { Form } from "../../Forms/Form";
 
 export const LeftSide = () => {
   return (
     <LeftSideStyled>
-      <Bar />
-      This is left side
+      <Form />
     </LeftSideStyled>
   );
 };

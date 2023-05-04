@@ -6,5 +6,20 @@
     "about": "O projekte",
     "how": "Ako na to",
     "contact": "Kontakt"
+  },
+  "forms": {
+    "title1": "Vyberte si možnosť, ako chcete pomôcť",
+    "title2": "Potrebujeme od Vás zopár informácií",
+    "title3": "Skontrolujte si zadané údaje",
+    "next": "Pokračovať",
+    "back": "Späť",
+    "aboutYou": "O vás",
+    "name": "Meno",
+    "enterName": "Zadajte Vaše meno",
+    "lastname": "Priezvisko",
+    "enterLastname": "Zadajte Vaše priezvisko",
+    "email": "E-mailová adresa",
+    "enterEmail": "Zadajte Váš e-mail",
+    "phone": "Telefónne číslo"
   }
 }

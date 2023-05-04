@@ -8,6 +8,9 @@ export const BarStyled = styled.div`
   div {
     margin-right: 5px;
   }
+  @media screen and (max-width: 992px) {
+    justify-content: center;
+  }
 `;
 
 export const BarActiveLineStyled = styled.div`
