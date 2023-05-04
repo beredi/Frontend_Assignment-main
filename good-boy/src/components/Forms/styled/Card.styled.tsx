@@ -29,6 +29,9 @@ export const CardStyled = styled.div<CardStyledProps>`
   img {
     border-radius: 50%;
   }
+  &:hover {
+    background: ${(props) => (props.selected ? null : "#eceaea")};
+  }
 `;
 export const CardGroupStyled = styled.div`
   display: flex;

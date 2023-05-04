@@ -28,7 +28,7 @@ export const ButtonStyled = styled.div<ButtonStyledProps>`
     cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
     opacity: 1;
     &:hover {
-      opacity: ${(props) => (props.disabled ? 1 : 0.8)};
+      opacity: ${(props) => (props.disabled ? 1 : 0.9)};
     }
   }
 `;

@@ -37,7 +37,7 @@ export const FormStepper = ({
         }
       }}
     >
-      {({ isSubmitting }) => (
+      {({ isSubmitting, isValid }) => (
         <Form autoComplete="off">
           <Bar actualStep={step} />
           {currentChild}
@@ -55,7 +55,7 @@ export const FormStepper = ({
             <Button
               label={isLastStep() ? t("forms.submit") : t("forms.next")}
               color={"primary"}
-              disabled={false}
+              disabled={!isValid}
               shadow={true}
               textColor="light"
               type="submit"
