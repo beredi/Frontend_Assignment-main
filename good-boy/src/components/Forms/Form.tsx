@@ -2,6 +2,7 @@ import { FormStepper } from "./FormStepper";
 import { FormStep } from "./FormStep";
 import { useTranslation } from "react-i18next";
 import { FormInput } from "../common/Forms/FormInput";
+import { FormPhoneInput } from "../common/Forms/FormPhoneInput";
 
 export const Form = () => {
   const { t } = useTranslation();
@@ -42,7 +43,11 @@ export const Form = () => {
           label={t("forms.email")}
           placeholder={t("forms.enterEmail") as string}
         />
-        <FormInput name="phone" label={t("forms.phone")} />
+        <FormPhoneInput
+          name="phone"
+          label={t("forms.phone")}
+          placeholder={t("forms.enterPhone") as string}
+        />
       </FormStep>
       <FormStep title={t("forms.title3")}>
         <input type="text" />
