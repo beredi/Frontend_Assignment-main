@@ -1,5 +1,6 @@
 import { DetailedHTMLProps, InputHTMLAttributes } from "react";
 import { CheckboxStyled } from "../styled/Checkbox.styled";
+import { Field } from "formik";
 
 interface Props
   extends DetailedHTMLProps<
@@ -11,7 +12,7 @@ interface Props
 export const Checkbox = ({ label, ...props }: Props) => {
   return (
     <CheckboxStyled>
-      <input type="checkbox" {...props} />
+      <Field type="checkbox" {...props} />
       <span>{label}</span>
     </CheckboxStyled>
   );

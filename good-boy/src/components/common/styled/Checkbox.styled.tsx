@@ -22,6 +22,7 @@ export const CheckboxStyled = styled.div`
     width: 34px;
     height: 34px;
     position: relative;
+    cursor: pointer;
     &:checked {
       &::before {
         content: "\\2713";

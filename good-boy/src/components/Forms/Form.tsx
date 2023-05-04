@@ -15,6 +15,7 @@ export const Form = () => {
         lastname: "",
         email: "",
         phone: "",
+        agree: false,
       }}
       onSubmit={async (values) => {
         console.log("values", values);
@@ -70,7 +71,7 @@ export const Form = () => {
         />
         <FormSummaryDetail field={t("forms.email")} value={"This is my name"} />
         <FormSummaryDetail field={t("forms.phone")} value={"This is my name"} />
-        <Checkbox label={t("forms.agreement")} />
+        <Checkbox name="agree" label={t("forms.agreement")} />
       </FormStep>
     </FormStepper>
   );
