@@ -26,6 +26,8 @@
     "chosenShelter": "I care most about the shelter",
     "amountToHelp": "The amount I want to help",
     "agreement": "I agree to the processing of my personal data",
-    "submit": "Submit"
+    "submit": "Submit",
+    "firstCardText": "I want to make a financial contribution to a specific shelter",
+    "secondCardText": "I want to contribute financially to the entire foundation"
   }
 }

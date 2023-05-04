@@ -26,6 +26,8 @@
     "chosenShelter": "Najviac mi záleží na útulku",
     "amountToHelp": "Suma ktorou chcem pomôcť",
     "agreement": "Súhlasím so spracovaním mojich osobných údajov",
-    "submit": "Odoslať formulár"
+    "submit": "Odoslať formulár",
+    "firstCardText": "Chcem finančne prispieť konkrétnemu útulku",
+    "secondCardText": "Chcem finančne prispieť celej nadácii"
   }
 }

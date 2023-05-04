@@ -5,9 +5,21 @@ import { FormInput } from "../common/Forms/FormInput";
 import { FormPhoneInput } from "../common/Forms/FormPhoneInput";
 import { FormSummaryDetail } from "./FormSummaryDetail";
 import { Checkbox } from "../common/Forms/Checkbox";
+import { Card } from "./Card";
+import { CardGroupStyled } from "./styled/Card.styled";
+import { BoldParagraphStyled } from "../common/styled/BoldParagraph.styled";
+import { useState } from "react";
+
+type SelectedCardType = 1 | 2;
 
 export const Form = () => {
+  const [cardSelected, setCardSelected] = useState<SelectedCardType>(1);
   const { t } = useTranslation();
+
+  const isCardSelected = (numberOfCard: SelectedCardType) => {
+    return numberOfCard === cardSelected;
+  };
+
   return (
     <FormStepper
       initialValues={{
@@ -21,10 +33,30 @@ export const Form = () => {
         console.log("values", values);
       }}
     >
-      <FormStep
-        title={t("forms.title1")}
-        description={t("links.about") as string}
-      >
+      <FormStep title={t("forms.title1")}>
+        <CardGroupStyled>
+          <Card
+            position="left"
+            text={t("forms.firstCardText")}
+            icon={
+              isCardSelected(1)
+                ? "/icon/wallet-selected.png"
+                : "/icon/wallet.png"
+            }
+            selected={isCardSelected(1)}
+            onClick={() => setCardSelected(1)}
+          />
+          <Card
+            position="right"
+            text={t("forms.secondCardText")}
+            icon={
+              isCardSelected(2) ? "/icon/paw-selected.png" : "/icon/paw.png"
+            }
+            selected={isCardSelected(2)}
+            onClick={() => setCardSelected(2)}
+          />
+        </CardGroupStyled>
+        <BoldParagraphStyled>{t("links.about")}</BoldParagraphStyled>
         <input type="text" />
       </FormStep>
       <FormStep
