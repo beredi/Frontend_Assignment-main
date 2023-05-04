@@ -36,5 +36,5 @@ export const ButtonGroupStyled = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 30px 0px;
+  padding: 60px 0px;
 `;

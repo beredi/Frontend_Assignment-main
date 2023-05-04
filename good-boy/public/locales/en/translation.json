@@ -20,6 +20,11 @@
     "enterLastname": "Enter your lastname",
     "email": "E-mail address",
     "enterEmail": "Enter your email",
-    "phone": "Phone number"
+    "phone": "Phone number",
+    "fullName": "Full name",
+    "helpOption": "In what form do I want to help",
+    "chosenShelter": "I care most about the shelter",
+    "amountToHelp": "The amount I want to help",
+    "agreement": "I agree to the processing of my personal data"
   }
 }

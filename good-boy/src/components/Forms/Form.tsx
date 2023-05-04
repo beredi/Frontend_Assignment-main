@@ -3,6 +3,8 @@ import { FormStep } from "./FormStep";
 import { useTranslation } from "react-i18next";
 import { FormInput } from "../common/Forms/FormInput";
 import { FormPhoneInput } from "../common/Forms/FormPhoneInput";
+import { FormSummaryDetail } from "./FormSummaryDetail";
+import { Checkbox } from "../common/Forms/Checkbox";
 
 export const Form = () => {
   const { t } = useTranslation();
@@ -50,8 +52,25 @@ export const Form = () => {
         />
       </FormStep>
       <FormStep title={t("forms.title3")}>
-        <input type="text" />
-        <input type="text" />
+        <FormSummaryDetail
+          field={t("forms.helpOption")}
+          value={"This is my name"}
+        />
+        <FormSummaryDetail
+          field={t("forms.chosenShelter")}
+          value={"This is my name"}
+        />
+        <FormSummaryDetail
+          field={t("forms.amountToHelp")}
+          value={"This is my name"}
+        />
+        <FormSummaryDetail
+          field={t("forms.fullName")}
+          value={"This is my name"}
+        />
+        <FormSummaryDetail field={t("forms.email")} value={"This is my name"} />
+        <FormSummaryDetail field={t("forms.phone")} value={"This is my name"} />
+        <Checkbox label={t("forms.agreement")} />
       </FormStep>
     </FormStepper>
   );
