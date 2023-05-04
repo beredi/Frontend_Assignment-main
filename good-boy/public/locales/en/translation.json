@@ -25,6 +25,7 @@
     "helpOption": "In what form do I want to help",
     "chosenShelter": "I care most about the shelter",
     "amountToHelp": "The amount I want to help",
-    "agreement": "I agree to the processing of my personal data"
+    "agreement": "I agree to the processing of my personal data",
+    "submit": "Submit"
   }
 }

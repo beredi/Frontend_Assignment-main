@@ -22,21 +22,29 @@ export const Button = ({
   ...props
 }: Props) => {
   const generateButtonColor = () => {
-    switch (color) {
-      case "primary":
-        return "linear-gradient(115.41deg, #CD8A64 -1.77%, #C4794F 73.03%)";
-      case "secondary":
-        return "#F3E2D9";
-      default:
-        return "#9F9F9F";
+    if (props.disabled) {
+      return "#9F9F9F";
+    } else {
+      switch (color) {
+        case "primary":
+          return "linear-gradient(115.41deg, #CD8A64 -1.77%, #C4794F 73.03%)";
+        case "secondary":
+          return "#F3E2D9";
+        default:
+          return "#9F9F9F";
+      }
     }
   };
   const generateTextColor = () => {
-    switch (textColor) {
-      case "light":
-        return "#FFFFFF";
-      default:
-        return "#2F2F2F";
+    if (props.disabled) {
+      return "#FFFFFF";
+    } else {
+      switch (textColor) {
+        case "light":
+          return "#FFFFFF";
+        default:
+          return "#2F2F2F";
+      }
     }
   };
 
@@ -45,6 +53,7 @@ export const Button = ({
       shadow={shadow ?? false}
       textColor={generateTextColor()}
       color={generateButtonColor()}
+      disabled={props.disabled ?? false}
     >
       <button {...props}>{label}</button>
     </ButtonStyled>

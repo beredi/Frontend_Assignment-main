@@ -4,6 +4,7 @@ interface ButtonStyledProps {
   color: string;
   textColor: string;
   shadow: boolean;
+  disabled?: boolean;
 }
 
 export const ButtonStyled = styled.div<ButtonStyledProps>`
@@ -24,10 +25,10 @@ export const ButtonStyled = styled.div<ButtonStyledProps>`
     font-weight: 800;
     font-size: 14px;
     line-height: 19px;
-    cursor: pointer;
+    cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
     opacity: 1;
     &:hover {
-      opacity: 0.8;
+      opacity: ${(props) => (props.disabled ? 1 : 0.8)};
     }
   }
 `;
