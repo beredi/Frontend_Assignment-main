@@ -1,9 +1,9 @@
 import { useState } from "react";
 import {
-  DropdownContainer,
-  DropdownHeader,
-  DropdownItem,
-  DropdownList,
+  DropdownFlagContainer,
+  DropdownFlagHeader,
+  DropdownFlagItem,
+  DropdownFlagList,
   FlagImage,
 } from "../styled/CustomDrowpdown.styled";
 
@@ -18,7 +18,7 @@ const options: Option[] = [
   { value: "CZ", label: "Czech Republic", image: "/flags/cz.png" },
 ];
 
-export const CustomDropdown = () => {
+export const CustomFlagDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState<Option | null>(null);
 
@@ -30,27 +30,27 @@ export const CustomDropdown = () => {
   };
 
   return (
-    <DropdownContainer className={"custom-dropdown"}>
-      <DropdownHeader onClick={toggleDropdown}>
+    <DropdownFlagContainer className={"custom-dropdown"}>
+      <DropdownFlagHeader onClick={toggleDropdown}>
         <>
           <FlagImage
             src={selectedOption ? selectedOption.image : options[0].image}
             alt={selectedOption ? selectedOption.label : options[0].label}
           />
         </>
-      </DropdownHeader>
+      </DropdownFlagHeader>
       {isOpen && (
-        <DropdownList>
+        <DropdownFlagList>
           {options.map((option) => (
-            <DropdownItem
+            <DropdownFlagItem
               key={option.value}
               onClick={() => handleOptionClick(option)}
             >
               <FlagImage src={option.image} alt={option.label} />
-            </DropdownItem>
+            </DropdownFlagItem>
           ))}
-        </DropdownList>
+        </DropdownFlagList>
       )}
-    </DropdownContainer>
+    </DropdownFlagContainer>
   );
 };

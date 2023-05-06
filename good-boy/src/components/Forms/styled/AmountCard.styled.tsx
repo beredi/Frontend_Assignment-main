@@ -27,7 +27,8 @@ export const AmountCardStyled = styled.div<AmountCardStyledProps>`
     background: ${(props) =>
       props.selected
         ? "linear-gradient(115.41deg, #CD8A64 -1.77%, #C4794F 73.03%)"
-        : "#e8e8e8"};
+        : "#eceaea"};
+    border: 1px solid #cd8b65;
   }
 
   @media screen and (max-width: 992px) {

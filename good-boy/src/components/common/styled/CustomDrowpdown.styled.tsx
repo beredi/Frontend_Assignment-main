@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
-export const DropdownContainer = styled.div`
+export const DropdownFlagContainer = styled.div`
   position: relative;
   width: 40px;
   text-align: center;
 `;
 
-export const DropdownHeader = styled.div`
+export const DropdownFlagHeader = styled.div`
   display: flex;
   align-items: center;
   border-radius: 5px;
@@ -14,7 +14,7 @@ export const DropdownHeader = styled.div`
   justify-content: center;
 `;
 
-export const DropdownList = styled.ul`
+export const DropdownFlagList = styled.ul`
   position: absolute;
   top: 20px;
   left: 0;
@@ -30,7 +30,7 @@ export const DropdownList = styled.ul`
   text-align: center;
 `;
 
-export const DropdownItem = styled.li`
+export const DropdownFlagItem = styled.li`
   display: flex;
   align-items: center;
   cursor: pointer;

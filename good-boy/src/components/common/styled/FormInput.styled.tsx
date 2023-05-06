@@ -1,9 +1,14 @@
 import styled from "styled-components";
 
-export const FormInputStyled = styled.div`
+interface FormInputStyledProps {
+  value?: string;
+}
+
+export const FormInputStyled = styled.div<FormInputStyledProps>`
   position: relative;
   margin: 16px 0;
-  input {
+  input,
+  select {
     border: 1px solid #dfdfdf;
     box-sizing: border-box;
     border-radius: 8px;
@@ -13,6 +18,7 @@ export const FormInputStyled = styled.div`
     font-size: 16px;
     line-height: 21px;
     color: #2f2f2f;
+    background: #ffffff;
     &:focus {
       border: 1px solid #cd8b65;
       outline: none;
@@ -21,6 +27,25 @@ export const FormInputStyled = styled.div`
       color: #9f9f9f;
     }
   }
+
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+  }
+
+  select:invalid:not(:focus) {
+    color: red; /* set the color of the select when the first option is selected */
+  }
+
+  img.dropdown-arrow {
+    position: absolute;
+    right: 35px;
+    top: 50%;
+    pointer-events: none;
+  }
+
   p {
     position: absolute;
     left: 24px;

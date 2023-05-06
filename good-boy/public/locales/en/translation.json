@@ -28,6 +28,8 @@
     "agreement": "I agree to the processing of my personal data",
     "submit": "Submit",
     "firstCardText": "I want to make a financial contribution to a specific shelter",
-    "secondCardText": "I want to contribute financially to the entire foundation"
+    "secondCardText": "I want to contribute financially to the entire foundation",
+    "selectPlaceholder": "Select a shelter from the list",
+    "selectLabel": "Shelter"
   }
 }

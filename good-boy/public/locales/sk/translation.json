@@ -28,6 +28,8 @@
     "agreement": "Súhlasím so spracovaním mojich osobných údajov",
     "submit": "Odoslať formulár",
     "firstCardText": "Chcem finančne prispieť konkrétnemu útulku",
-    "secondCardText": "Chcem finančne prispieť celej nadácii"
+    "secondCardText": "Chcem finančne prispieť celej nadácii",
+    "selectPlaceholder": "Vyberte útulok zo zoznamu",
+    "selectLabel": "Útulok"
   }
 }
