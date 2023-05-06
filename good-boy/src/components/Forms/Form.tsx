@@ -9,15 +9,22 @@ import { Card } from "./Card";
 import { CardGroupStyled } from "./styled/Card.styled";
 import { BoldParagraphStyled } from "../common/styled/BoldParagraph.styled";
 import { useState } from "react";
+import { AmountCard, AmountType } from "./AmountCard";
+import { AmountCardGroup } from "./styled/AmountCard.styled";
 
 type SelectedCardType = 1 | 2;
 
 export const Form = () => {
   const [cardSelected, setCardSelected] = useState<SelectedCardType>(1);
+  const [selectedAmount, setSelectedAmount] = useState<AmountType>("50");
   const { t } = useTranslation();
 
   const isCardSelected = (numberOfCard: SelectedCardType) => {
     return numberOfCard === cardSelected;
+  };
+
+  const isAmountSelected = (amountOfCard: AmountType) => {
+    return amountOfCard === selectedAmount;
   };
 
   return (
@@ -58,6 +65,43 @@ export const Form = () => {
         </CardGroupStyled>
         <BoldParagraphStyled>{t("links.about")}</BoldParagraphStyled>
         <input type="text" />
+        <AmountCardGroup>
+          <AmountCard
+            amount={5}
+            selected={isAmountSelected("5")}
+            onClick={() => setSelectedAmount("5")}
+          />
+          <AmountCard
+            amount={10}
+            selected={isAmountSelected("10")}
+            onClick={() => setSelectedAmount("10")}
+          />
+          <AmountCard
+            amount={20}
+            selected={isAmountSelected("20")}
+            onClick={() => setSelectedAmount("20")}
+          />
+          <AmountCard
+            amount={30}
+            selected={isAmountSelected("30")}
+            onClick={() => setSelectedAmount("30")}
+          />
+          <AmountCard
+            amount={50}
+            selected={isAmountSelected("50")}
+            onClick={() => setSelectedAmount("50")}
+          />
+          <AmountCard
+            amount={100}
+            selected={isAmountSelected("100")}
+            onClick={() => setSelectedAmount("100")}
+          />
+          <AmountCard
+            selected={isAmountSelected("custom")}
+            onClick={() => setSelectedAmount("custom")}
+            customAmount={true}
+          />
+        </AmountCardGroup>
       </FormStep>
       <FormStep
         title={t("forms.title2")}
