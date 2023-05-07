@@ -13,18 +13,17 @@ import { AmountCard, AmountType } from "./AmountCard";
 import { AmountCardGroup } from "./styled/AmountCard.styled";
 import { FormSelect } from "../common/Forms/FormSelect";
 import { FormGroupStyled } from "./styled/FormGroup.styled";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store/store";
+import { Shelter } from "../../types/shelters";
 
 type SelectedCardType = 1 | 2;
-const options = [
-  { value: "1", label: "Utulok 1" },
-  { value: "2", label: "Utulok 2" },
-  { value: "3", label: "Utulok 3" },
-  { value: "4", label: "Utulok 4" },
-];
 
 export const Form = () => {
   const [cardSelected, setCardSelected] = useState<SelectedCardType>(1);
   const [selectedAmount, setSelectedAmount] = useState<AmountType>("50");
+  const shelters = useSelector((state: RootState) => state.shelters);
+
   const { t } = useTranslation();
 
   const isCardSelected = (numberOfCard: SelectedCardType) => {
@@ -78,11 +77,12 @@ export const Form = () => {
           label={t("forms.selectLabel")}
           placeholder={t("forms.selectPlaceholder")}
         >
-          {options.map((option) => (
-            <option value={option.value} key={option.value}>
-              {option.label}
-            </option>
-          ))}
+          {shelters &&
+            shelters.map((shelter: Shelter) => (
+              <option value={shelter.id} key={shelter.name}>
+                {shelter.name}
+              </option>
+            ))}
         </FormSelect>
         <FormGroupStyled>
           <BoldParagraphStyled>{t("forms.amountToHelp")}</BoldParagraphStyled>
