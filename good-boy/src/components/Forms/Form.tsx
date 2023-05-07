@@ -16,19 +16,16 @@ import { FormGroupStyled } from "./styled/FormGroup.styled";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
 import { Shelter } from "../../types/shelters";
-
-type SelectedCardType = 1 | 2;
+import { useSelectedHelpOption } from "../../hooks/useSelectedHelpOption";
 
 export const Form = () => {
-  const [cardSelected, setCardSelected] = useState<SelectedCardType>(1);
   const [selectedAmount, setSelectedAmount] = useState<AmountType>("50");
   const shelters = useSelector((state: RootState) => state.shelters);
+  const { phoneCountry } = useSelector((state: RootState) => state.formData);
+  const { setCardSelected, isCardSelected, selectedHelpOption } =
+    useSelectedHelpOption();
 
   const { t } = useTranslation();
-
-  const isCardSelected = (numberOfCard: SelectedCardType) => {
-    return numberOfCard === cardSelected;
-  };
 
   const isAmountSelected = (amountOfCard: AmountType) => {
     return amountOfCard === selectedAmount;
