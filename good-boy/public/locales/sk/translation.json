@@ -30,6 +30,9 @@
     "firstCardText": "Chcem finančne prispieť konkrétnemu útulku",
     "secondCardText": "Chcem finančne prispieť celej nadácii",
     "selectPlaceholder": "Vyberte útulok zo zoznamu",
-    "selectLabel": "Útulok"
+    "selectLabel": "Útulok",
+    "selectRequired": "V prípade príspevku pre konkrétny útulok je toto pole povinné",
+    "notRequired": "Nepovinné",
+    "required": "Povinné"
   }
 }

@@ -21,7 +21,6 @@ export const FormStepper = ({
   const isLastStep = () => {
     return step === childrenArray.length - 1;
   };
-
   return (
     <Formik
       {...props}
@@ -37,7 +36,7 @@ export const FormStepper = ({
         }
       }}
     >
-      {({ isSubmitting, isValid }) => (
+      {({}) => (
         <Form autoComplete="off">
           <Bar actualStep={step} />
           {currentChild}
@@ -55,7 +54,7 @@ export const FormStepper = ({
             <Button
               label={isLastStep() ? t("forms.submit") : t("forms.next")}
               color={"primary"}
-              disabled={!isValid}
+              //disabled={!isValid}
               shadow={true}
               textColor="light"
               type="submit"

@@ -11,12 +11,14 @@ import { BoldParagraphStyled } from "../common/styled/BoldParagraph.styled";
 import { useState } from "react";
 import { AmountCard, AmountType } from "./AmountCard";
 import { AmountCardGroup } from "./styled/AmountCard.styled";
-import { FormSelect } from "../common/Forms/FormSelect";
 import { FormGroupStyled } from "./styled/FormGroup.styled";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
 import { Shelter } from "../../types/shelters";
 import { useSelectedHelpOption } from "../../hooks/useSelectedHelpOption";
+import * as Yup from "yup";
+import { validateSelectShelter } from "./validators/validators";
+import { ShelterSelectField } from "./ShelterSelectField";
 
 export const Form = () => {
   const [selectedAmount, setSelectedAmount] = useState<AmountType>("50");
@@ -24,12 +26,15 @@ export const Form = () => {
   const { phoneCountry } = useSelector((state: RootState) => state.formData);
   const { setCardSelected, isCardSelected, selectedHelpOption } =
     useSelectedHelpOption();
-
   const { t } = useTranslation();
 
   const isAmountSelected = (amountOfCard: AmountType) => {
     return amountOfCard === selectedAmount;
   };
+
+  const validationSchemaStep2 = Yup.object({
+    //lastname: Yup.string().required("Last name is required"),
+  });
 
   return (
     <FormStepper
@@ -69,10 +74,17 @@ export const Form = () => {
           />
         </CardGroupStyled>
         <BoldParagraphStyled>{t("links.about")}</BoldParagraphStyled>
-        <FormSelect
+        <ShelterSelectField
           name="shelter"
           label={t("forms.selectLabel")}
           placeholder={t("forms.selectPlaceholder")}
+          validate={(value: string) =>
+            validateSelectShelter(
+              value,
+              t("forms.selectRequired"),
+              selectedHelpOption
+            )
+          }
         >
           {shelters &&
             shelters.map((shelter: Shelter) => (
@@ -80,7 +92,7 @@ export const Form = () => {
                 {shelter.name}
               </option>
             ))}
-        </FormSelect>
+        </ShelterSelectField>
         <FormGroupStyled>
           <BoldParagraphStyled>{t("forms.amountToHelp")}</BoldParagraphStyled>
           <AmountCardGroup>
@@ -125,6 +137,7 @@ export const Form = () => {
       <FormStep
         title={t("forms.title2")}
         description={t("forms.aboutYou") as string}
+        validationSchema={validationSchemaStep2}
       >
         <FormInput
           name="name"

@@ -30,6 +30,9 @@
     "firstCardText": "I want to make a financial contribution to a specific shelter",
     "secondCardText": "I want to contribute financially to the entire foundation",
     "selectPlaceholder": "Select a shelter from the list",
-    "selectLabel": "Shelter"
+    "selectLabel": "Shelter",
+    "selectRequired": "In the case of a contribution for a specific shelter, this field is mandatory",
+    "notRequired": "Not required",
+    "required": "Required"
   }
 }

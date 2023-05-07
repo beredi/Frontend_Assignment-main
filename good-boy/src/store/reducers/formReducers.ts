@@ -8,7 +8,7 @@ type FormActions = {
 };
 
 const initialFormData: FormDataType = {
-  selectedHelpOption: 1,
+  selectedHelpOption: 2,
   phoneCountry: "sk",
 };
 
