@@ -7,8 +7,7 @@ import { Checkbox } from "../common/Forms/Checkbox";
 import { Card } from "./Card";
 import { CardGroupStyled } from "./styled/Card.styled";
 import { BoldParagraphStyled } from "../common/styled/BoldParagraph.styled";
-import { useState } from "react";
-import { AmountCard, AmountType } from "./AmountCard";
+import { AmountCard } from "./AmountCard";
 import { AmountCardGroup } from "./styled/AmountCard.styled";
 import { FormGroupStyled } from "./styled/FormGroup.styled";
 import { useSelector } from "react-redux";
@@ -22,17 +21,14 @@ import {
 } from "./validators/validators";
 import { ShelterSelectField } from "./ShelterSelectField";
 import { FormSummary } from "./FormSummary";
+import { useSelectAmount } from "../../hooks/useSelectAmount";
 
 export const Form = () => {
-  const [selectedAmount, setSelectedAmount] = useState<AmountType>("50");
+  const { setSelectedAmount, isAmountSelected } = useSelectAmount();
   const shelters = useSelector((state: RootState) => state.shelters);
   const { setCardSelected, isCardSelected, selectedHelpOption } =
     useSelectedHelpOption();
   const { t } = useTranslation();
-
-  const isAmountSelected = (amountOfCard: AmountType) => {
-    return amountOfCard === selectedAmount;
-  };
 
   return (
     <FormStepper
@@ -43,6 +39,7 @@ export const Form = () => {
         phone: "",
         agree: false,
         shelter: "",
+        amount: "",
       }}
       onSubmit={async (values) => {
         console.log("values", values);

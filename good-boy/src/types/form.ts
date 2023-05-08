@@ -1,3 +1,5 @@
+import { AmountType } from "../components/Forms/AmountCard";
+
 export type SelectedCardType = 1 | 2;
 
 export type PhoneCountryLabelType = "sk" | "cz";
@@ -21,4 +23,15 @@ export const PhoneCZ: PhoneCountryType = {
 export type FormDataType = {
   selectedHelpOption: SelectedCardType;
   phoneCountry: PhoneCountryType;
+  selectedAmount: AmountType;
 };
+
+export interface FormData {
+  name: string;
+  lastname: string;
+  email: string;
+  phone: string;
+  agree: boolean;
+  shelter: string;
+  amount: string;
+}

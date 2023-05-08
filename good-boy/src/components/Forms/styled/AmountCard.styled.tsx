@@ -30,11 +30,6 @@ export const AmountCardStyled = styled.div<AmountCardStyledProps>`
         : "#eceaea"};
     border: 1px solid #cd8b65;
   }
-
-  @media screen and (max-width: 992px) {
-    width: 100%;
-    margin: 2px 0px;
-  }
 `;
 
 export const AmountInputStyled = styled.input`
@@ -75,5 +70,17 @@ export const AmountCardGroup = styled.div`
   gap: 7px;
   @media screen and (max-width: 992px) {
     flex-direction: column;
+  }
+`;
+
+export const AmountCardWrapper = styled.div`
+  position: relative;
+  div.error-message {
+    position: absolute;
+  }
+
+  @media screen and (max-width: 992px) {
+    width: 100%;
+    margin: 2px 0px;
   }
 `;

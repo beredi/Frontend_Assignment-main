@@ -1,9 +1,15 @@
 import {
   AmountCardStyled,
+  AmountCardWrapper,
   AmountInputStyled,
 } from "./styled/AmountCard.styled";
-import { useState } from "react";
 import React from "react";
+import { Field, useFormikContext } from "formik";
+import { FormData } from "../../types/form";
+import { validateCustomAmount } from "./validators/validators";
+import { useTranslation } from "react-i18next";
+import { useSelectAmount } from "../../hooks/useSelectAmount";
+import { ErrorMessageStyled } from "../common/styled/ErrorMessage.styled";
 
 export type AmountType = "5" | "10" | "20" | "30" | "50" | "100" | "custom";
 
@@ -20,32 +26,45 @@ export const AmountCard = ({
   customAmount,
   onClick,
 }: Props) => {
-  const [customValue, setCustomValue] = useState<number | undefined>(undefined);
+  const {
+    values: { amount: amountFormValue = "" },
+    setFieldValue,
+  } = useFormikContext<FormData>();
+  const { t } = useTranslation();
+  const { selectedAmount } = useSelectAmount();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputVal = e.target.value;
-    const regex = /^[0-9]*\.?[0-9]*$/; // regex to allow only decimal numbers
+    const regex = /^[0-9]*\.?[0-9]*$/;
 
     if (inputVal === "") {
-      setCustomValue(undefined);
+      setFieldValue("amount", "");
     } else if (regex.test(inputVal)) {
       const parsedValue = parseFloat(inputVal);
       if (!isNaN(parsedValue) && parsedValue >= 0) {
         const roundedValue = parseFloat(parsedValue.toFixed(2));
-        setCustomValue(roundedValue);
+        setFieldValue("amount", roundedValue);
       }
     }
   };
-
   const getAmount = () => {
     if (customAmount) {
       return (
-        <AmountInputStyled
+        <Field
+          component={AmountInputStyled}
           type="number"
           min={0}
-          value={customValue ?? ""}
+          name={"amount"}
           onChange={handleInputChange}
           step="0.01"
+          value={amountFormValue}
+          validate={(value: string) =>
+            validateCustomAmount(
+              value,
+              t("forms.requiredAmount"),
+              selectedAmount
+            )
+          }
         />
       );
     } else {
@@ -53,8 +72,17 @@ export const AmountCard = ({
     }
   };
   return (
-    <AmountCardStyled selected={selected} onClick={onClick}>
-      {getAmount()} €
-    </AmountCardStyled>
+    <AmountCardWrapper>
+      <AmountCardStyled selected={selected} onClick={onClick}>
+        {getAmount()} €
+      </AmountCardStyled>
+      {customAmount && (
+        <ErrorMessageStyled
+          name="amount"
+          component="div"
+          className="error-message"
+        />
+      )}
+    </AmountCardWrapper>
   );
 };

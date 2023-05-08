@@ -10,6 +10,7 @@ type FormActions = {
 const initialFormData: FormDataType = {
   selectedHelpOption: 2,
   phoneCountry: PhoneSK,
+  selectedAmount: "50",
 };
 
 export const formReducers: Reducer<FormDataType, FormActions | AnyAction> = (

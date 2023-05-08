@@ -1,12 +1,27 @@
 import * as Yup from "yup";
+import { AmountType } from "../AmountCard";
+import { SelectedCardType } from "../../../types/form";
 
 export const validateSelectShelter = (
   value: string,
   errorMessage: string,
-  selectedHelpOption: number
+  selectedHelpOption: SelectedCardType
 ) => {
   if (selectedHelpOption === 1) {
     if (!value || value === "") {
+      return errorMessage;
+    }
+  }
+  return undefined;
+};
+
+export const validateCustomAmount = (
+  value: string,
+  errorMessage: string,
+  selectedAmount: AmountType
+) => {
+  if (selectedAmount === "custom") {
+    if (!value || value === "" || value === "0") {
       return errorMessage;
     }
   }

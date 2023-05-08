@@ -39,6 +39,7 @@
     "lastnameRequired": "Priezvisko je povinné",
     "lastnameCharacters": "Priezvisko môže obsahovať najmenej 2 a najviac 30 znakov",
     "invalidEmail": "Neplatná emailová adresa",
-    "invalidPhone": "Neplatné číslo"
+    "invalidPhone": "Neplatné číslo",
+    "requiredAmount": "Suma je povinná"
   }
 }

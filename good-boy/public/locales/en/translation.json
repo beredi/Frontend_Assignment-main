@@ -39,6 +39,7 @@
     "lastnameRequired": "The lastname is required",
     "lastnameCharacters": "The lastname can contain a minimum of 2 and a maximum of 30 characters",
     "invalidEmail": "Invalid email address",
-    "invalidPhone": "Invalid phone number"
+    "invalidPhone": "Invalid phone number",
+    "requiredAmount": "Amount is required"
   }
 }
