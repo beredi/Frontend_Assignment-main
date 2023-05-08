@@ -23,6 +23,17 @@ export const BarActiveLineStyled = styled.div`
       rgba(0, 0, 0, 0) 100.7%
     ),
     #cd8b65;
+  animation-name: zoomIn;
+  animation-duration: 0.3s;
+
+  @keyframes zoomIn {
+    from {
+      transform: scale(0);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
 `;
 
 export const BarLineStyled = styled.div`

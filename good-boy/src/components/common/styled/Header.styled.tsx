@@ -9,6 +9,7 @@ export const HeaderStyled = styled.header`
 
   img {
     opacity: 1;
+    cursor: pointer;
 
     &:hover {
       opacity: 0.7;

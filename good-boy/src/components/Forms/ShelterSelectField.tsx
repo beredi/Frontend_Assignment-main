@@ -29,7 +29,7 @@ export const ShelterSelectField = ({
 
   useEffect(() => {
     validateForm();
-  }, [selectedHelpOption]);
+  }, [selectedHelpOption, validateForm]);
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setFieldValue("shelter", event.target.value);

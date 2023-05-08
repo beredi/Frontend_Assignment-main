@@ -14,12 +14,8 @@ export const Header = () => {
             <span className="title"> {t("goodBoy")}</span>
           </div>
           <div>
-            <a href="#">
-              <img src="/icon/facebook.png" alt="Facebook" />
-            </a>
-            <a href="#">
-              <img src="/icon/ig.png" alt="Instagram" />
-            </a>
+            <img src="/icon/facebook.png" alt="Facebook" />
+            <img src="/icon/ig.png" alt="Instagram" />
           </div>
         </HeaderStyled>
       </Container>

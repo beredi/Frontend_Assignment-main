@@ -7,13 +7,13 @@ export const FooterLinks = () => {
     <FooterLinksStyled>
       <ul>
         <li>
-          <a href="#">{t("links.about")}</a>
+          <button>{t("links.about")}</button>
         </li>
         <li>
-          <a href="#">{t("links.how")}</a>
+          <button>{t("links.how")}</button>
         </li>
         <li>
-          <a href="#">{t("links.contact")}</a>
+          <button>{t("links.contact")}</button>
         </li>
       </ul>
     </FooterLinksStyled>

@@ -68,11 +68,9 @@ export const useSubmitForm = () => {
           autoClose: 2000,
           position: "top-center",
         });
-        {
-          setError(
-            "There was an error submitting the form. Please try again later."
-          );
-        }
+        setError(
+          "There was an error submitting the form. Please try again later."
+        );
       });
   };
 

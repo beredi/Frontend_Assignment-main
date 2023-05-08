@@ -35,7 +35,7 @@ export const FormStepper = ({
         }
       }}
     >
-      {({}) => (
+      {() => (
         <Form autoComplete="off">
           <Bar actualStep={formStep} />
           {currentChild}

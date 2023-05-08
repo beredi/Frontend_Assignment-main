@@ -53,10 +53,13 @@ export const FooterLinksStyled = styled.div`
   ul li {
     margin-bottom: 0.8em;
   }
-  a {
+  button {
     text-decoration: none;
     color: #585757;
     opacity: 1;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
     &:hover {
       opacity: 0.7;
       text-decoration: underline;
