@@ -22,6 +22,7 @@ import {
 import { ShelterSelectField } from "./ShelterSelectField";
 import { FormSummary } from "./FormSummary";
 import { useSelectAmount } from "../../hooks/useSelectAmount";
+import { useSubmitForm } from "../../hooks/useSubmitForm";
 
 export const Form = () => {
   const { setSelectedAmount, isAmountSelected } = useSelectAmount();
@@ -29,6 +30,7 @@ export const Form = () => {
   const { setCardSelected, isCardSelected, selectedHelpOption } =
     useSelectedHelpOption();
   const { t } = useTranslation();
+  const { submitForm } = useSubmitForm();
 
   return (
     <FormStepper
@@ -42,7 +44,7 @@ export const Form = () => {
         amount: "",
       }}
       onSubmit={async (values) => {
-        console.log("values", values);
+        await submitForm(values);
       }}
     >
       <FormStep title={t("forms.title1")}>
@@ -137,7 +139,9 @@ export const Form = () => {
           t("forms.lastnameRequired"),
           t("forms.lastnameCharacters"),
           t("forms.invalidEmail"),
-          t("forms.invalidPhone")
+          t("forms.invalidPhone"),
+          t("forms.requiredEmail"),
+          t("forms.nameRequired")
         )}
       >
         <FormInput

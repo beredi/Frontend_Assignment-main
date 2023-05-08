@@ -38,18 +38,24 @@ export const validationSchema2 = (
   lastnameRequired: string,
   lastnameCharacters: string,
   invalidEmail: string,
-  invalidPhone: string
+  invalidPhone: string,
+  requiredEmail: string,
+  nameRequired: string
 ) =>
   Yup.object().shape({
-    name: Yup.string().min(2, nameCharacters).max(20, nameCharacters),
+    name: Yup.string()
+      .required(nameRequired)
+      .min(2, nameCharacters)
+      .max(20, nameCharacters),
     lastname: Yup.string()
       .required(lastnameRequired)
       .min(2, lastnameCharacters)
       .max(30, lastnameCharacters),
     email: Yup.string()
+      .required(requiredEmail)
       .email(invalidEmail)
       .matches(
-        /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i,
+        /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|net|org|edu|gov|mil|biz|info|io|co|xyz|sk|cz|rs|dev|uk)$/i,
         invalidEmail
       ),
     phone: Yup.string().matches(/^[1-9]\d*$/, invalidPhone),

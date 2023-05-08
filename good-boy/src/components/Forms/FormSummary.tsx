@@ -51,7 +51,7 @@ export const FormSummary = () => {
       )}
       <FormSummaryDetail field={t("forms.amountToHelp")} value={amount} />
       <FormSummaryDetail field={t("forms.fullName")} value={fullName} />
-      <FormSummaryDetail field={t("forms.email")} value={email} />
+      {email && <FormSummaryDetail field={t("forms.email")} value={email} />}
       {phone && (
         <FormSummaryDetail field={t("forms.phone")} value={phoneNumber} />
       )}

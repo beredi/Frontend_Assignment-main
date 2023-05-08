@@ -37,9 +37,11 @@
     "agreeMessage": "Musíte súhlasiť so zmluvnými podmienkami",
     "nameCharacters": "Meno môže obsahovať najmenej 2 a najviac 20 znakov",
     "lastnameRequired": "Priezvisko je povinné",
+    "nameRequired": "Meno je povinné",
     "lastnameCharacters": "Priezvisko môže obsahovať najmenej 2 a najviac 30 znakov",
     "invalidEmail": "Neplatná emailová adresa",
     "invalidPhone": "Neplatné číslo",
-    "requiredAmount": "Suma je povinná"
+    "requiredAmount": "Suma je povinná",
+    "requiredEmail": "Email adresa je povinná"
   }
 }

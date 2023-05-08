@@ -35,3 +35,12 @@ export interface FormData {
   shelter: string;
   amount: string;
 }
+
+export interface SubmitFormData {
+  firstName?: string;
+  lastName: string;
+  email: string;
+  phone?: string;
+  value: number;
+  shelterID?: number;
+}

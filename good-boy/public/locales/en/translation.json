@@ -37,9 +37,11 @@
     "agreeMessage": "You must agree to the terms and conditions",
     "nameCharacters": "The name can contain a minimum of 2 and a maximum of 20 characters",
     "lastnameRequired": "The lastname is required",
+    "nameRequired": "The name is required",
     "lastnameCharacters": "The lastname can contain a minimum of 2 and a maximum of 30 characters",
     "invalidEmail": "Invalid email address",
     "invalidPhone": "Invalid phone number",
-    "requiredAmount": "Amount is required"
+    "requiredAmount": "Amount is required",
+    "requiredEmail": "Email is required"
   }
 }

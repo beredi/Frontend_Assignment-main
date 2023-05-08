@@ -15,7 +15,6 @@ export const FormStepper = ({
   ) as React.ReactElement<FormikStepProps>[];
   const [step, setStep] = useState<number>(0);
   const currentChild = childrenArray[step];
-  const [completed, setCompleted] = useState<boolean>(false);
   const { t } = useTranslation();
 
   const isLastStep = () => {
@@ -28,7 +27,6 @@ export const FormStepper = ({
       onSubmit={async (values, helpers) => {
         if (isLastStep()) {
           await props.onSubmit(values, helpers);
-          setCompleted(true);
         } else {
           setStep((s) => s + 1);
           console.log(values);
