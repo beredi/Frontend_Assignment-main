@@ -38,7 +38,7 @@ export const ShelterSelectField = ({
     }
   };
   return (
-    <FormInputStyled value={values.shelter}>
+    <FormInputStyled value={values.shelter} type={"select"}>
       <p>{label}</p>
       <img
         src={"/icon/dropdown.png"}

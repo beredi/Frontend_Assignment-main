@@ -6,26 +6,25 @@ import {
   DropdownFlagList,
   FlagImage,
 } from "../styled/CustomDrowpdown.styled";
+import { usePhoneCountry } from "../../../hooks/usePhoneCountry";
+import { PhoneCountryLabelType, PhoneCZ, PhoneSK } from "../../../types/form";
 
 interface Option {
-  value: string;
-  label: string;
+  number: string;
+  label: PhoneCountryLabelType;
   image: string;
 }
 
-const options: Option[] = [
-  { value: "SK", label: "Slovakia", image: "/flags/sk.png" },
-  { value: "CZ", label: "Czech Republic", image: "/flags/cz.png" },
-];
+const options: Option[] = [PhoneSK, PhoneCZ];
 
 export const CustomFlagDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState<Option | null>(null);
+  const { phoneCountry, setPhoneCountry } = usePhoneCountry();
 
   const toggleDropdown = () => setIsOpen(!isOpen);
 
   const handleOptionClick = (option: Option) => {
-    setSelectedOption(option);
+    setPhoneCountry(option);
     setIsOpen(false);
   };
 
@@ -34,8 +33,8 @@ export const CustomFlagDropdown = () => {
       <DropdownFlagHeader onClick={toggleDropdown}>
         <>
           <FlagImage
-            src={selectedOption ? selectedOption.image : options[0].image}
-            alt={selectedOption ? selectedOption.label : options[0].label}
+            src={phoneCountry ? phoneCountry.image : options[0].image}
+            alt={phoneCountry ? phoneCountry.label : options[0].label}
           />
         </>
       </DropdownFlagHeader>
@@ -43,7 +42,7 @@ export const CustomFlagDropdown = () => {
         <DropdownFlagList>
           {options.map((option) => (
             <DropdownFlagItem
-              key={option.value}
+              key={option.number}
               onClick={() => handleOptionClick(option)}
             >
               <FlagImage src={option.image} alt={option.label} />
@@ -51,6 +50,7 @@ export const CustomFlagDropdown = () => {
           ))}
         </DropdownFlagList>
       )}
+      <span>{phoneCountry.number}</span>
     </DropdownFlagContainer>
   );
 };

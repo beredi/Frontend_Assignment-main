@@ -26,7 +26,6 @@ import { ShelterSelectField } from "./ShelterSelectField";
 export const Form = () => {
   const [selectedAmount, setSelectedAmount] = useState<AmountType>("50");
   const shelters = useSelector((state: RootState) => state.shelters);
-  const { phoneCountry } = useSelector((state: RootState) => state.formData);
   const { setCardSelected, isCardSelected, selectedHelpOption } =
     useSelectedHelpOption();
   const { t } = useTranslation();
@@ -157,11 +156,7 @@ export const Form = () => {
           label={t("forms.email")}
           placeholder={t("forms.enterEmail") as string}
         />
-        <FormPhoneInput
-          name="phone"
-          label={t("forms.phone")}
-          placeholder={t("forms.enterPhone") as string}
-        />
+        <FormPhoneInput name="phone" label={t("forms.phone")} />
       </FormStep>
       <FormStep
         title={t("forms.title3")}

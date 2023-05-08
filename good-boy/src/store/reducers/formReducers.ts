@@ -1,4 +1,4 @@
-import { FormDataType } from "../../types/form";
+import { FormDataType, PhoneSK } from "../../types/form";
 import * as actions from "./../actionTypes";
 import { Reducer, AnyAction } from "redux";
 
@@ -9,7 +9,7 @@ type FormActions = {
 
 const initialFormData: FormDataType = {
   selectedHelpOption: 2,
-  phoneCountry: "sk",
+  phoneCountry: PhoneSK,
 };
 
 export const formReducers: Reducer<FormDataType, FormActions | AnyAction> = (

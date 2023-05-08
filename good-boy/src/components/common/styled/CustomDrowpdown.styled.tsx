@@ -4,6 +4,12 @@ export const DropdownFlagContainer = styled.div`
   position: relative;
   width: 40px;
   text-align: center;
+  display: flex;
+  align-items: center;
+  span {
+    padding-left: 10px;
+    color: #9f9f9f;
+  }
 `;
 
 export const DropdownFlagHeader = styled.div`
