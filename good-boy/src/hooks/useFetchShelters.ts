@@ -3,13 +3,11 @@ import { useEffect } from "react";
 import axios from "axios";
 import { Shelter } from "../types/shelters";
 import { fetchShelters } from "../store/actions/sheltersActions";
+import { API_URL } from "../types/api";
 
 type GetResponse = {
   shelters: Shelter[];
 };
-
-const API_URL =
-  "https://frontend-assignment-api.goodrequest.dev/api/v1/shelters";
 
 export const useFetchShelters = () => {
   const dispatch = useDispatch();
