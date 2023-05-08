@@ -24,6 +24,7 @@ export type FormDataType = {
   selectedHelpOption: SelectedCardType;
   phoneCountry: PhoneCountryType;
   selectedAmount: AmountType;
+  formStep: number;
 };
 
 export interface FormData {

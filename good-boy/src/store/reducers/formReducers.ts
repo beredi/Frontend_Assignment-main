@@ -11,6 +11,7 @@ const initialFormData: FormDataType = {
   selectedHelpOption: 2,
   phoneCountry: PhoneSK,
   selectedAmount: "50",
+  formStep: 0,
 };
 
 export const formReducers: Reducer<FormDataType, FormActions | AnyAction> = (
@@ -18,8 +19,6 @@ export const formReducers: Reducer<FormDataType, FormActions | AnyAction> = (
   action: FormActions | AnyAction
 ): FormDataType => {
   switch (action.type) {
-    case actions.RESET_FORM:
-      return initialFormData;
     case actions.EDIT_FORM:
       return {
         ...state,

@@ -1,10 +1,11 @@
 import { Form, Formik, FormikConfig, FormikValues } from "formik";
-import React, { ReactNode, useState } from "react";
+import React, { ReactNode } from "react";
 import { FormikStepProps } from "./FormStep";
 import { Bar } from "../common/Forms/Bar";
 import { Button } from "../common/Forms/Button";
 import { ButtonGroupStyled } from "../common/styled/Button.styled";
 import { useTranslation } from "react-i18next";
+import { useFormStep } from "../../hooks/useFormStep";
 
 export const FormStepper = ({
   children,
@@ -13,12 +14,12 @@ export const FormStepper = ({
   const childrenArray = React.Children.toArray(
     children as ReactNode
   ) as React.ReactElement<FormikStepProps>[];
-  const [step, setStep] = useState<number>(0);
-  const currentChild = childrenArray[step];
+  const { formStep, setFormStep } = useFormStep();
+  const currentChild = childrenArray[formStep];
   const { t } = useTranslation();
 
   const isLastStep = () => {
-    return step === childrenArray.length - 1;
+    return formStep === childrenArray.length - 1;
   };
   return (
     <Formik
@@ -28,7 +29,7 @@ export const FormStepper = ({
         if (isLastStep()) {
           await props.onSubmit(values, helpers);
         } else {
-          setStep((s) => s + 1);
+          setFormStep(formStep + 1);
           console.log(values);
           helpers.setTouched({});
         }
@@ -36,16 +37,16 @@ export const FormStepper = ({
     >
       {({}) => (
         <Form autoComplete="off">
-          <Bar actualStep={step} />
+          <Bar actualStep={formStep} />
           {currentChild}
           <ButtonGroupStyled>
             <div>
-              {step > 0 ? (
+              {formStep > 0 ? (
                 <Button
                   label={t("forms.back")}
                   color="secondary"
                   type="button"
-                  onClick={() => setStep((step) => step - 1)}
+                  onClick={() => setFormStep(formStep - 1)}
                 />
               ) : null}
             </div>

@@ -43,8 +43,8 @@ export const Form = () => {
         shelter: "",
         amount: "",
       }}
-      onSubmit={async (values) => {
-        await submitForm(values);
+      onSubmit={async (values, formikHelpers) => {
+        await submitForm(values, formikHelpers.resetForm);
       }}
     >
       <FormStep title={t("forms.title1")}>

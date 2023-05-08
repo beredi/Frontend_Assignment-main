@@ -6,11 +6,12 @@ import { FormikValues } from "formik";
 import { useSelectAmount } from "./useSelectAmount";
 import { useSelectedHelpOption } from "./useSelectedHelpOption";
 import { usePhoneCountry } from "./usePhoneCountry";
-
-type ResponseType = "SUCCESS" | "ERROR";
+import { toast } from "react-toastify";
+import { useTranslation } from "react-i18next";
+import { useFormStep } from "./useFormStep";
+import { resetForm as resetReduxForm } from "../store/actions/formActions";
 
 export const useSubmitForm = () => {
-  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<boolean>(false);
   const { selectedAmount } = useSelectAmount();
@@ -18,6 +19,8 @@ export const useSubmitForm = () => {
   const {
     phoneCountry: { number: prefix },
   } = usePhoneCountry();
+  const { t } = useTranslation();
+  const { setFormStep } = useFormStep();
 
   const prepareDataForSubmit = (values: FormikValues) => {
     const submitValues: SubmitFormData = {
@@ -39,8 +42,7 @@ export const useSubmitForm = () => {
     return submitValues;
   };
 
-  const submitForm = async (values: FormikValues) => {
-    setIsLoading(true);
+  const submitForm = async (values: FormikValues, resetForm: () => void) => {
     setError(null);
     setSuccess(false);
 
@@ -50,17 +52,27 @@ export const useSubmitForm = () => {
       .post(`${API_URL}/contribute`, preparedData)
       .then((response) => {
         setSuccess(response.data.messages[0].type === "SUCCESS");
+        toast.success(t("forms.submitSuccess"), {
+          autoClose: 2000,
+          position: "top-center",
+        });
+        setTimeout(() => {
+          setFormStep(0);
+          resetForm();
+          resetReduxForm();
+        }, 2001);
       })
       .catch((error) => {
         console.log(error);
+        toast.error(t("forms.submitError"), {
+          autoClose: 2000,
+          position: "top-center",
+        });
         {
           setError(
             "There was an error submitting the form. Please try again later."
           );
         }
-      })
-      .finally(() => {
-        setIsLoading(false);
       });
   };
 

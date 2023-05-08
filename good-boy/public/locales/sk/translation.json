@@ -42,6 +42,8 @@
     "invalidEmail": "Neplatná emailová adresa",
     "invalidPhone": "Neplatné číslo",
     "requiredAmount": "Suma je povinná",
-    "requiredEmail": "Email adresa je povinná"
+    "requiredEmail": "Email adresa je povinná",
+    "submitSuccess": "Váš príspevok bol úspešne odoslaný. Ďakujeme :-)",
+    "submitError": "Nastala chyba pri odoslaní príspevku. Skontrolujte údaje a skúste znovu."
   }
 }

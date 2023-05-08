@@ -42,6 +42,8 @@
     "invalidEmail": "Invalid email address",
     "invalidPhone": "Invalid phone number",
     "requiredAmount": "Amount is required",
-    "requiredEmail": "Email is required"
+    "requiredEmail": "Email is required",
+    "submitSuccess": "Your post has been sent successfully. Thank you :-)",
+    "submitError": "There was an error sending the post. Check the data and try again."
   }
 }
