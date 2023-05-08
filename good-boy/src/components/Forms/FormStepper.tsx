@@ -54,7 +54,6 @@ export const FormStepper = ({
             <Button
               label={isLastStep() ? t("forms.submit") : t("forms.next")}
               color={"primary"}
-              //disabled={!isValid}
               shadow={true}
               textColor="light"
               type="submit"

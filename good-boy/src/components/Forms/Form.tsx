@@ -3,7 +3,6 @@ import { FormStep } from "./FormStep";
 import { useTranslation } from "react-i18next";
 import { FormInput } from "../common/Forms/FormInput";
 import { FormPhoneInput } from "../common/Forms/FormPhoneInput";
-import { FormSummaryDetail } from "./FormSummaryDetail";
 import { Checkbox } from "../common/Forms/Checkbox";
 import { Card } from "./Card";
 import { CardGroupStyled } from "./styled/Card.styled";
@@ -22,6 +21,7 @@ import {
   validationSchemaStep3,
 } from "./validators/validators";
 import { ShelterSelectField } from "./ShelterSelectField";
+import { FormSummary } from "./FormSummary";
 
 export const Form = () => {
   const [selectedAmount, setSelectedAmount] = useState<AmountType>("50");
@@ -164,24 +164,7 @@ export const Form = () => {
         title={t("forms.title3")}
         validationSchema={validationSchemaStep3(t("forms.agreeMessage"))}
       >
-        <FormSummaryDetail
-          field={t("forms.helpOption")}
-          value={"This is my name"}
-        />
-        <FormSummaryDetail
-          field={t("forms.chosenShelter")}
-          value={"This is my name"}
-        />
-        <FormSummaryDetail
-          field={t("forms.amountToHelp")}
-          value={"This is my name"}
-        />
-        <FormSummaryDetail
-          field={t("forms.fullName")}
-          value={"This is my name"}
-        />
-        <FormSummaryDetail field={t("forms.email")} value={"This is my name"} />
-        <FormSummaryDetail field={t("forms.phone")} value={"This is my name"} />
+        <FormSummary />
         <Checkbox name="agree" label={t("forms.agreement")} />
       </FormStep>
     </FormStepper>
