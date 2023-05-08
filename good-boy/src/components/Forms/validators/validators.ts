@@ -1,3 +1,5 @@
+import * as Yup from "yup";
+
 export const validateSelectShelter = (
   value: string,
   errorMessage: string,
@@ -10,3 +12,8 @@ export const validateSelectShelter = (
   }
   return undefined;
 };
+
+export const validationSchemaStep3 = (message: string) =>
+  Yup.object().shape({
+    agree: Yup.bool().oneOf([true], message),
+  });

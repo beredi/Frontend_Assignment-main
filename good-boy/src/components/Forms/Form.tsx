@@ -17,7 +17,10 @@ import { RootState } from "../../store/store";
 import { Shelter } from "../../types/shelters";
 import { useSelectedHelpOption } from "../../hooks/useSelectedHelpOption";
 import * as Yup from "yup";
-import { validateSelectShelter } from "./validators/validators";
+import {
+  validateSelectShelter,
+  validationSchemaStep3,
+} from "./validators/validators";
 import { ShelterSelectField } from "./ShelterSelectField";
 
 export const Form = () => {
@@ -160,7 +163,10 @@ export const Form = () => {
           placeholder={t("forms.enterPhone") as string}
         />
       </FormStep>
-      <FormStep title={t("forms.title3")}>
+      <FormStep
+        title={t("forms.title3")}
+        validationSchema={validationSchemaStep3(t("forms.agreeMessage"))}
+      >
         <FormSummaryDetail
           field={t("forms.helpOption")}
           value={"This is my name"}

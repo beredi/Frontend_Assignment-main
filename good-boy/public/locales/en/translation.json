@@ -33,6 +33,7 @@
     "selectLabel": "Shelter",
     "selectRequired": "In the case of a contribution for a specific shelter, this field is mandatory",
     "notRequired": "Not required",
-    "required": "Required"
+    "required": "Required",
+    "agreeMessage": "You must agree to the terms and conditions"
   }
 }

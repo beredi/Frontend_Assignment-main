@@ -33,6 +33,7 @@
     "selectLabel": "Útulok",
     "selectRequired": "V prípade príspevku pre konkrétny útulok je toto pole povinné",
     "notRequired": "Nepovinné",
-    "required": "Povinné"
+    "required": "Povinné",
+    "agreeMessage": "Musíte súhlasiť so zmluvnými podmienkami"
   }
 }
