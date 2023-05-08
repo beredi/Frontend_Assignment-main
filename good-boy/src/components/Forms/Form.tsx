@@ -16,9 +16,9 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
 import { Shelter } from "../../types/shelters";
 import { useSelectedHelpOption } from "../../hooks/useSelectedHelpOption";
-import * as Yup from "yup";
 import {
   validateSelectShelter,
+  validationSchema2,
   validationSchemaStep3,
 } from "./validators/validators";
 import { ShelterSelectField } from "./ShelterSelectField";
@@ -33,10 +33,6 @@ export const Form = () => {
   const isAmountSelected = (amountOfCard: AmountType) => {
     return amountOfCard === selectedAmount;
   };
-
-  const validationSchemaStep2 = Yup.object({
-    //lastname: Yup.string().required("Last name is required"),
-  });
 
   return (
     <FormStepper
@@ -139,7 +135,7 @@ export const Form = () => {
       <FormStep
         title={t("forms.title2")}
         description={t("forms.aboutYou") as string}
-        validationSchema={validationSchemaStep2}
+        validationSchema={validationSchema2()}
       >
         <FormInput
           name="name"
