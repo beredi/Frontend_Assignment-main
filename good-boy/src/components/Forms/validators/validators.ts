@@ -18,15 +18,24 @@ export const validationSchemaStep3 = (message: string) =>
     agree: Yup.bool().oneOf([true], message),
   });
 
-export const validationSchema2 = () =>
+export const validationSchema2 = (
+  nameCharacters: string,
+  lastnameRequired: string,
+  lastnameCharacters: string,
+  invalidEmail: string,
+  invalidPhone: string
+) =>
   Yup.object().shape({
-    name: Yup.string().min(2).max(20),
-    lastname: Yup.string().required().min(2).max(30),
+    name: Yup.string().min(2, nameCharacters).max(20, nameCharacters),
+    lastname: Yup.string()
+      .required(lastnameRequired)
+      .min(2, lastnameCharacters)
+      .max(30, lastnameCharacters),
     email: Yup.string()
-      .email("Invalid email address")
+      .email(invalidEmail)
       .matches(
         /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i,
-        "Invalid email address"
+        invalidEmail
       ),
-    phone: Yup.string().matches(/^[1-9]\d*$/, "Invalid phone number"),
+    phone: Yup.string().matches(/^[1-9]\d*$/, invalidPhone),
   });

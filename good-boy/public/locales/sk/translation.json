@@ -34,6 +34,11 @@
     "selectRequired": "V prípade príspevku pre konkrétny útulok je toto pole povinné",
     "notRequired": "Nepovinné",
     "required": "Povinné",
-    "agreeMessage": "Musíte súhlasiť so zmluvnými podmienkami"
+    "agreeMessage": "Musíte súhlasiť so zmluvnými podmienkami",
+    "nameCharacters": "Meno môže obsahovať najmenej 2 a najviac 20 znakov",
+    "lastnameRequired": "Priezvisko je povinné",
+    "lastnameCharacters": "Priezvisko môže obsahovať najmenej 2 a najviac 30 znakov",
+    "invalidEmail": "Neplatná emailová adresa",
+    "invalidPhone": "Neplatné číslo"
   }
 }

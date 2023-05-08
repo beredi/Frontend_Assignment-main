@@ -135,7 +135,13 @@ export const Form = () => {
       <FormStep
         title={t("forms.title2")}
         description={t("forms.aboutYou") as string}
-        validationSchema={validationSchema2()}
+        validationSchema={validationSchema2(
+          t("forms.nameCharacters"),
+          t("forms.lastnameRequired"),
+          t("forms.lastnameCharacters"),
+          t("forms.invalidEmail"),
+          t("forms.invalidPhone")
+        )}
       >
         <FormInput
           name="name"
