@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
 import { useFormStep } from "./useFormStep";
 import { resetForm as resetReduxForm } from "../store/actions/formActions";
+import { useDispatch } from "react-redux";
 
 export const useSubmitForm = () => {
   const { selectedAmount } = useSelectAmount();
@@ -18,6 +19,7 @@ export const useSubmitForm = () => {
   } = usePhoneCountry();
   const { t } = useTranslation();
   const { setFormStep } = useFormStep();
+  const dispatch = useDispatch();
 
   const prepareDataForSubmit = (values: FormikValues) => {
     const submitValues: SubmitFormData = {
@@ -49,10 +51,10 @@ export const useSubmitForm = () => {
           autoClose: 2000,
           position: "top-center",
         });
+        resetForm();
+        dispatch(resetReduxForm());
         setTimeout(() => {
           setFormStep(0);
-          resetForm();
-          resetReduxForm();
         }, 2001);
       })
       .catch((error) => {

@@ -24,6 +24,10 @@ export const formReducers: Reducer<FormDataType, FormActions | AnyAction> = (
         ...state,
         [action.payload.field]: action.payload.value,
       };
+    case actions.RESET_FORM:
+      return {
+        ...initialFormData,
+      };
     default:
       return state;
   }
