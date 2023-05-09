@@ -1,10 +1,19 @@
 import { Container } from "../styled/Container.styled";
 import { TopBarStyled } from "../styled/TopBar.styled";
-import { HeaderStyled } from "../styled/Header.styled";
+import { HeaderButtons, HeaderStyled } from "../styled/Header.styled";
 import { useTranslation } from "react-i18next";
 
 export const Header = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+
+  const getLanguage = () => {
+    return i18n.language;
+  };
+
+  const setLanguage = async (lng: string) => {
+    await i18n.changeLanguage(lng);
+  };
+
   return (
     <TopBarStyled>
       <Container>
@@ -13,10 +22,17 @@ export const Header = () => {
             {t("foundation")}
             <span className="title"> {t("goodBoy")}</span>
           </div>
-          <div>
+          <HeaderButtons>
             <img src="/icon/facebook.png" alt="Facebook" />
             <img src="/icon/ig.png" alt="Instagram" />
-          </div>
+            <button
+              onClick={() => setLanguage(getLanguage() === "sk" ? "en" : "sk")}
+            >
+              {getLanguage() === "sk"
+                ? "Switch to English"
+                : "Prepnúť do Slovenčiny"}
+            </button>
+          </HeaderButtons>
         </HeaderStyled>
       </Container>
     </TopBarStyled>
