@@ -38,4 +38,6 @@ export const ButtonGroupStyled = styled.div`
   flex-direction: row;
   justify-content: space-between;
   padding: 60px 0px;
+  animation-name: zoomIn;
+  animation-duration: 0.4s;
 `;

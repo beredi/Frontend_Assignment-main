@@ -1,4 +1,3 @@
-import { useState } from "react";
 import axios from "axios";
 import { API_URL } from "../types/api";
 import { SubmitFormData } from "../types/form";
@@ -12,8 +11,6 @@ import { useFormStep } from "./useFormStep";
 import { resetForm as resetReduxForm } from "../store/actions/formActions";
 
 export const useSubmitForm = () => {
-  const [error, setError] = useState<string | null>(null);
-  const [success, setSuccess] = useState<boolean>(false);
   const { selectedAmount } = useSelectAmount();
   const { selectedHelpOption } = useSelectedHelpOption();
   const {
@@ -43,15 +40,11 @@ export const useSubmitForm = () => {
   };
 
   const submitForm = async (values: FormikValues, resetForm: () => void) => {
-    setError(null);
-    setSuccess(false);
-
     const preparedData = prepareDataForSubmit(values);
 
     axios
       .post(`${API_URL}/contribute`, preparedData)
-      .then((response) => {
-        setSuccess(response.data.messages[0].type === "SUCCESS");
+      .then(() => {
         toast.success(t("forms.submitSuccess"), {
           autoClose: 2000,
           position: "top-center",
@@ -68,11 +61,8 @@ export const useSubmitForm = () => {
           autoClose: 2000,
           position: "top-center",
         });
-        setError(
-          "There was an error submitting the form. Please try again later."
-        );
       });
   };
 
-  return { prepareDataForSubmit, error, success, submitForm };
+  return { submitForm };
 };
