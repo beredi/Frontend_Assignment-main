@@ -60,7 +60,7 @@ export const AmountInputStyled = styled.input`
   -moz-appearance: textfield;
 `;
 
-export const AmountCardGroup = styled.div`
+export const AmountCardGroupStyled = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;

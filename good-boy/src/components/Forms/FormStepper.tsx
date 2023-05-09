@@ -30,7 +30,6 @@ export const FormStepper = ({
           await props.onSubmit(values, helpers);
         } else {
           setFormStep(formStep + 1);
-          console.log(values);
           helpers.setTouched({});
         }
       }}

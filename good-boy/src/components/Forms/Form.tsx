@@ -7,8 +7,6 @@ import { Checkbox } from "../common/Forms/Checkbox";
 import { Card } from "./Card";
 import { CardGroupStyled } from "./styled/Card.styled";
 import { BoldParagraphStyled } from "../common/styled/BoldParagraph.styled";
-import { AmountCard } from "./AmountCard";
-import { AmountCardGroup } from "./styled/AmountCard.styled";
 import { FormGroupStyled } from "./styled/FormGroup.styled";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
@@ -21,12 +19,11 @@ import {
 } from "./validators/validators";
 import { ShelterSelectField } from "./ShelterSelectField";
 import { FormSummary } from "./FormSummary";
-import { useSelectAmount } from "../../hooks/useSelectAmount";
 import { useSubmitForm } from "../../hooks/useSubmitForm";
 import { FormStepStyled } from "./styled/FormStep.styled";
+import { AmountCardGroup } from "./AmountCardGroup";
 
 export const Form = () => {
-  const { setSelectedAmount, isAmountSelected } = useSelectAmount();
   const shelters = useSelector((state: RootState) => state.shelters);
   const { setCardSelected, isCardSelected, selectedHelpOption } =
     useSelectedHelpOption();
@@ -94,43 +91,7 @@ export const Form = () => {
           </ShelterSelectField>
           <FormGroupStyled>
             <BoldParagraphStyled>{t("forms.amountToHelp")}</BoldParagraphStyled>
-            <AmountCardGroup>
-              <AmountCard
-                amount={5}
-                selected={isAmountSelected("5")}
-                onClick={() => setSelectedAmount("5")}
-              />
-              <AmountCard
-                amount={10}
-                selected={isAmountSelected("10")}
-                onClick={() => setSelectedAmount("10")}
-              />
-              <AmountCard
-                amount={20}
-                selected={isAmountSelected("20")}
-                onClick={() => setSelectedAmount("20")}
-              />
-              <AmountCard
-                amount={30}
-                selected={isAmountSelected("30")}
-                onClick={() => setSelectedAmount("30")}
-              />
-              <AmountCard
-                amount={50}
-                selected={isAmountSelected("50")}
-                onClick={() => setSelectedAmount("50")}
-              />
-              <AmountCard
-                amount={100}
-                selected={isAmountSelected("100")}
-                onClick={() => setSelectedAmount("100")}
-              />
-              <AmountCard
-                selected={isAmountSelected("custom")}
-                onClick={() => setSelectedAmount("custom")}
-                customAmount={true}
-              />
-            </AmountCardGroup>
+            <AmountCardGroup />
           </FormGroupStyled>
         </FormStepStyled>
       </FormStep>
