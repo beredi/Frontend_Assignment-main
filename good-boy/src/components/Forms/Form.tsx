@@ -4,8 +4,6 @@ import { useTranslation } from "react-i18next";
 import { FormInput } from "../common/Forms/FormInput";
 import { FormPhoneInput } from "../common/Forms/FormPhoneInput";
 import { Checkbox } from "../common/Forms/Checkbox";
-import { Card } from "./Card";
-import { CardGroupStyled } from "./styled/Card.styled";
 import { BoldParagraphStyled } from "../common/styled/BoldParagraph.styled";
 import { FormGroupStyled } from "./styled/FormGroup.styled";
 import { useSelector } from "react-redux";
@@ -22,13 +20,13 @@ import { FormSummary } from "./FormSummary";
 import { useSubmitForm } from "../../hooks/useSubmitForm";
 import { FormStepStyled } from "./styled/FormStep.styled";
 import { AmountCardGroup } from "./AmountCardGroup";
+import { CardGroup } from "./CardGroup";
 
 export const Form = () => {
   const shelters = useSelector((state: RootState) => state.shelters);
-  const { setCardSelected, isCardSelected, selectedHelpOption } =
-    useSelectedHelpOption();
   const { t } = useTranslation();
   const { submitForm } = useSubmitForm();
+  const { selectedHelpOption } = useSelectedHelpOption();
 
   return (
     <FormStepper
@@ -47,28 +45,7 @@ export const Form = () => {
     >
       <FormStep title={t("forms.title1")}>
         <FormStepStyled>
-          <CardGroupStyled>
-            <Card
-              position="left"
-              text={t("forms.firstCardText")}
-              icon={
-                isCardSelected(1)
-                  ? "/icon/wallet-selected.png"
-                  : "/icon/wallet.png"
-              }
-              selected={isCardSelected(1)}
-              onClick={() => setCardSelected(1)}
-            />
-            <Card
-              position="right"
-              text={t("forms.secondCardText")}
-              icon={
-                isCardSelected(2) ? "/icon/paw-selected.png" : "/icon/paw.png"
-              }
-              selected={isCardSelected(2)}
-              onClick={() => setCardSelected(2)}
-            />
-          </CardGroupStyled>
+          <CardGroup />
           <BoldParagraphStyled>{t("links.about")}</BoldParagraphStyled>
           <ShelterSelectField
             name="shelter"
